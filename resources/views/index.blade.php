@@ -36,6 +36,7 @@
 <script type="text/javascript" src="{{ asset('plugins/revolution.extension.parallax.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('plugins/revolution.extension.slideanims.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('plugins/revolution.extension.video.min.js')}}"></script>
+@yield('css')
 <script type="text/javascript">
         function setREVStartSize(e) {
             try {
@@ -77,7 +78,7 @@
 <div class="container">
 
 <div id="logo">
-<a href="index.html">
+<a href="/">
 <span class="logo-default"><img src="{{asset('plugins/Logo.png')}}" style="width:85px"></span>
 <span class="logo-dark"><img src="{{asset('plugins/Logo.png')}}" style="width:85px"></span>
 </a>
@@ -118,8 +119,10 @@
 <div class="container">
 <nav>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown"><a href="#">Sekolah</a>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown"><a href="/sekolah">Sekolah</a>
+        <li><a href="index.html">About US</a></li>
+        <li class="dropdown"><a href="#">Contact</a>
         </li>
     </ul>
 </nav>
@@ -354,6 +357,6 @@
 <script src="{{asset('js/functions.js')}}"></script>
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('plugins/popper.min.js')}}"></script>
-
+@yield('script')
 </body>
 </html>

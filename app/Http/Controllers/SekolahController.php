@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use DataTables;
 use Illuminate\Http\Request;
-
+use App\Models\Sekolah;
+use Illuminate\Support\Facades\Cache;
 class SekolahController extends Controller
 {
     /**
@@ -16,8 +18,20 @@ class SekolahController extends Controller
     {
         //
     }
-    public function getdata()
+    public function getdata(Request $request)
     {
-        return "hai";
+        if ($request->ajax()) {
+            $data =Sekolah::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+
+        return view('sekolah');
     }
 }
